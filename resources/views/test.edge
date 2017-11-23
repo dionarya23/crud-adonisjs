@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<title>Welcome To Home</title>
+{{ css("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css") }}
+</head>
+    <body>
+
+    <div class="fluid-container">
+    <div class="jumbotron" style="background:black">
+        <h1><center style="color:white">Crud Dengan AdonisJS</center></h1>
+
+    </div>
+
+    </div>
+
+    <div class="container">
+    <div class="row">
+
+    <div class="col-md-12">
+    <a href="/add" class="btn btn-success">
+    Tambah data
+    </a>
+    </div>
+
+    <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Nim</th>
+        <th>Nama</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+
+     @each(d in data)
+      <tr>
+        <td>{{ d.NIM }}</td>
+        <td>{{ d.Nama }}</td>
+        <td>
+           <a href="/edit/{{ d.NIM }}" class="btn btn-primary">
+            EDIT
+           </a>
+
+           <a href="/hapus/{{ d.NIM }}" class="btn btn-danger">
+            HAPUS
+           </a>
+        </td>
+      </tr>
+     @endeach
+    
+    
+    </tbody>
+  </table>
+
+    </div>
+    </div>
+
+
+    </body>
+    </html>

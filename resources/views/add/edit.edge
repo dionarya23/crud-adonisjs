@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title>Welcome To Home</title>
+{{ css("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css") }}
+</head>
+    <body>
+
+    <div class="fluid-container">
+    <div class="jumbotron" style="background:black">
+        <h1><center style="color:white">Crud Dengan AdonisJS</center></h1>
+
+    </div>
+
+    </div>
+
+    <div class="container">
+    <div class="row">
+
+    @if(status=='edit')
+    <form action='/edit/{{ data.NIM }}' method="post">
+    {{ csrfField() }}
+    <div class="form-group">
+    <label for="nim">Nim :</label>
+    <input type="text" name="nim" value="{{ data.NIM }}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="nama">Nama:</label>
+    <input type="text" name="nama" value="{{ data.Nama }}" class="form-control" >
+  </div>
+ 
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    @else
+    <form action="/add" method="post">
+    {{ csrfField() }}
+    <div class="form-group">
+    <label for="nim">Nim :</label>
+    <input type="text" name="nim" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="nama">Nama:</label>
+    <input type="text" name="nama" class="form-control" >
+  </div>
+ 
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    @endif
+     
+
+    </div>
+    </div>
+
+
+    </body>
+    </html>
